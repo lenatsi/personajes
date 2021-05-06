@@ -58,7 +58,10 @@ controller.getalljobs = async (req, res) => {
     res.status(500).send('ocurrió un error')
   }
 
-  /* const filter = req.query.filter
+  /* 
+  Búsqueda con filtros
+
+  const filter = req.query.filter
   const startDate = req.query.startDate
   const endDate = req.query.endDate
   console.log(filter)

@@ -5,7 +5,6 @@ const Application = require('../models/application.js')
 const authJWT = require('../auth/jwt')
 const validator = require('../validators/validator')
 const config = require('../config')
-const jwt_decode = require('jwt-decode')
 
 controller.signup = async (req, res) => {
   const email = req.body.email
