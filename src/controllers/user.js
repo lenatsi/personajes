@@ -78,9 +78,14 @@ controller.login = async (req, res) => {
 
 controller.userDetail = async (req, res) => {
   const user = req.user
-  const applied = await Application.find({applicant: user.id}, 'job -_id')
+  try{
+    const applied = await Application.find({applicant: user.id}, 'job -_id')
   console.log(applied)
   res.send({ status: 'ok', data: req.user, jobs: applied })
+  }catch (err){
+    console.log(error)
+    res.status(401).send('Error')
+  }
 }
 
 controller.apply = async (req, res) => {

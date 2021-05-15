@@ -5,10 +5,12 @@ const SchemaMongo = mongoose.Schema
 const Schema = new SchemaMongo({
   nombre: { type: String },
   apellidos: { type: String },
-  role: { type: String },
+  photo: {type: String, default: 'https://images.pexels.com/photos/2451568/pexels-photo-2451568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'},
+  role: { type: String, enum: ['user', 'company'], default:'user', require: true},
   cv: { type: String },
   email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
+  //Ñdir teléfono
 })
 
 Schema.pre('save', async function (next) {
@@ -27,4 +29,4 @@ Schema.methods.isValidPassword = async function (password) {
   return compare
 }
 
-module.exports = mongoose.model('users', Schema)
+module.exports = mongoose.model('user', Schema)
