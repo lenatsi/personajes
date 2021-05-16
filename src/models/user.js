@@ -8,9 +8,12 @@ const Schema = new SchemaMongo({
   photo: {type: String, default: 'https://images.pexels.com/photos/2451568/pexels-photo-2451568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'},
   role: { type: String, enum: ['user', 'company'], default:'user', require: true},
   cv: { type: String },
+  bio: { type: String, default: 'Pon aquí tu bio', require:true},
+  abilities: {type: String, default: 'Tengo muchas habilidades, pero olvidé ponerlas', require:true},
   email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
   //Ñdir teléfono
+  //experiencia y educación, modelo aparte e inyectar como objeto, igual que applies
 })
 
 Schema.pre('save', async function (next) {
